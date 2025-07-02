@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gioco per Francesca 💘</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
+      text-align: center;
+      padding: 2em;
+    }
+    .question-box {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+      margin: 2em auto;
+      padding: 2em;
+      max-width: 600px;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .yes { background-color: #ff69b4; color: white; }
+    .no { background-color: #aaa; color: white; }
+  </style>
+</head>
+<body>
+  <h1>🌹 Gioco romantico per Francesca 🌹</h1>
+  <div class="question-box" id="game">
+    <p id="question"></p>
+    <div>
+      <button class="yes" onclick="nextQuestion(true)">Sì</button>
+      <button class="no" onclick="nextQuestion(false)">No</button>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      "Francesca, ti piace ricevere sorprese?",
+      "Hai mai pensato che forse siamo anime gemelle?",
+      "Ti fidi di me anche quando ho la faccia da furbetto? 😇",
+      "Accetteresti un viaggio pazzo insieme, solo io e te?",
+      "Preferiresti una serata romantica o un bagno in mare a mezzanotte?",
+      "Sei consapevole che sei la ragazza più bella che io abbia mai visto?",
+      "Ti ho mai fatto ridere di gusto almeno una volta al giorno?",
+      "Ti immagini il futuro con me accanto?",
+      "Vorresti svegliarti accanto a me ogni mattina?",
+      "Se ti portassi un gelato ora, diresti sì anche senza sapere il gusto?",
+      "Mi ami anche quando sono un po’ fastidioso?",
+      "Ti ricordi il nostro primo momento speciale?",
+      "Sceglieresti me anche tra mille versioni alternative?",
+      "Hai risposto sinceramente a tutte queste domande, Francesca?",
+      "Sei pronta per ricevere una sorpresa da chi ti ama sul serio?"
+    ];
+
+    let current = 0;
+
+    function nextQuestion(answer) {
+      current++;
+      if (current < questions.length) {
+        document.getElementById("question").innerText = questions[current];
+      } else {
+        document.getElementById("game").innerHTML = `
+          <h2>✅ Ok Francesca! Riceverai una sorpresa dal fidanzato migliore del mondo,<br>nonché futuro sposo...<br> oppure tuo più grande rimpianto 💍❤️</h2>
+          <p style="margin-top:1em; font-size:1.2em;">(Controlla il telefono nei prossimi minuti... 🎁😉)</p>
+        `;
+      }
+    }
+
+    // Inizio
+    document.getElementById("question").innerText = questions[current];
+  </script>
+</body>
+</html>
